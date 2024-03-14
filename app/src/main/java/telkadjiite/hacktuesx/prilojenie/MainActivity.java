@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     else
                     {
                         Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_SHORT).show();
-                        sendToNextActivity();
+                        SendToMainPage();
                     }
 
 
@@ -119,10 +119,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    void sendToNextActivity()
+    void SendToMainPage()
     {
-        Intent intent = new Intent(MainActivity.this, MenuHost.class);
+        Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);
+
     }
 
     void SendToRegister()
