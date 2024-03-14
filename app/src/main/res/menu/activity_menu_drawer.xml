@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/menuProfile"
+            android:icon="@drawable/ic_person"
+            android:title="Profile" />
+
+        <item
+            android:id="@+id/menuMyEvents"
+            android:icon="@drawable/myevents"
+            android:title="My Events" />
+
+        <item
+            android:id="@+id/menuEvents"
+            android:icon="@drawable/events"
+            android:title="Events" />
+
+        <item
+            android:id="@+id/menuCreateEvents"
+            android:icon="@drawable/createevents"
+            android:title="Create Events" />
+
+        <item
+            android:id="@+id/menuMap"
+            android:icon="@drawable/map"
+            android:title="Map" />
+
+        <item
+            android:id="@+id/menuSettings"
+            android:icon="@drawable/settings"
+            android:title="Settings"/>
+    </group>
+</menu>
