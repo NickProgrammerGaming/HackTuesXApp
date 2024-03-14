@@ -7,39 +7,39 @@
 
     <fragment
         android:id="@+id/menuProfile"
-        android:name="telkadjiite.hacktuesx.prilojenie.TestFragment"
+        android:name="telkadjiite.hacktuesx.prilojenie.Profile"
         android:label="Wallpapers"
-        tools:layout="@layout/fragment_test" />
+        tools:layout="@layout/fragment_profile" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/menuMyEvents"-->
-<!--        android:name="telkadjiite.hacktuesx.prilojenie."-->
-<!--        android:label="MyEvents"-->
-<!--        tools:layout="@layout/" />-->
+    <fragment
+        android:id="@+id/menuMyEvents"
+        android:name="telkadjiite.hacktuesx.prilojenie.MyEvents"
+        android:label="MyEvents"
+        tools:layout="@layout/fragment_my_events" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/menuEvents"-->
-<!--        android:name="telkadjiite.hacktuesx.prilojenie."-->
-<!--        android:label="Events"-->
-<!--        tools:layout="@layout/" />-->
+    <fragment
+        android:id="@+id/menuEvents"
+        android:name="telkadjiite.hacktuesx.prilojenie.Events"
+        android:label="Events"
+        tools:layout="@layout/fragment_events" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/menuCreateEvents"-->
-<!--        android:name="telkadjiite.hacktuesx.prilojenie."-->
-<!--        android:label="CreateEvents"-->
-<!--        tools:layout="@layout/" />-->
+    <fragment
+        android:id="@+id/menuCreateEvents"
+        android:name="telkadjiite.hacktuesx.prilojenie.CreateEvents"
+        android:label="CreateEvents"
+        tools:layout="@layout/fragment_create_events" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/menuMaps"-->
-<!--        android:name="telkadjiite.hacktuesx.prilojenie."-->
-<!--        android:label="Map"-->
-<!--        tools:layout="@layout/" />-->
+    <fragment
+        android:id="@+id/menuMap"
+        android:name="telkadjiite.hacktuesx.prilojenie.Map"
+        android:label="Map"
+        tools:layout="@layout/fragment_map" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/menuSettings"-->
-<!--        android:name="telkadjiite.hacktuesx.prilojenie."-->
-<!--        android:label="Settings"-->
-<!--        tools:layout="@layout/" />-->
+    <fragment
+        android:id="@+id/menuSettings"
+        android:name="telkadjiite.hacktuesx.prilojenie.Settings"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
 
 
 </navigation>

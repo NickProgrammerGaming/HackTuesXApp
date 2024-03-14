@@ -23,7 +23,7 @@
             android:name=".MenuHost"
             android:exported="false" />
         <activity
-            android:name=".TestFragment"
+            android:name=".Profile"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
