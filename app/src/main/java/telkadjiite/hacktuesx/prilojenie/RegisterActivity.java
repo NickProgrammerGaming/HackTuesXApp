@@ -16,9 +16,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Firebase;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
@@ -26,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
-
+    DatabaseReference database;
     EditText firstNameInput;
     EditText lastNameInput;
     EditText emailInput;
@@ -49,6 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance().getReference();
 
         firstNameInput = findViewById(R.id.firstNameInput);
         lastNameInput = findViewById(R.id.lastNameInput);
@@ -126,6 +130,8 @@ public class RegisterActivity extends AppCompatActivity {
                        }
                    });
 
+                   User newUser = new User(fName, lName);
+                   database.child("users").child(mUser.getUid()).setValue(newUser);
                    SendToLogin();
 
                }else {

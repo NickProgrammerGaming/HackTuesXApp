@@ -24,4 +24,13 @@ public class Profile extends Fragment
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
+
+    /*
+    TODO:
+    Get reference to realtime database and authorization database
+    Fill texts and hobbies with the correct database values using current user uid
+    Create a button to add hobbies
+    Update properties in realtime database
+     */
+
 }

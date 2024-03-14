@@ -16,4 +16,15 @@ public class CreateEvents extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_create_events, container, false);
     }
+
+    /*
+    TODO:
+    Get reference to realtime database and authorization database
+    Create edit texts for all the fields
+    Create a dropdown for all the hobbies
+    For the location either make it a text field or get location info from google maps view using markers
+    Create a create event button
+    Associate the event owner with the current user
+    Update properties in realtime database
+     */
 }
