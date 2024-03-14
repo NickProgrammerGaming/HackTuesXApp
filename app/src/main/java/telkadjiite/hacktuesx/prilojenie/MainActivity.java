@@ -69,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
            }
        });
 
+       forgotPassword.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               SendToReset();
+           }
+       });
+
         
     }
 
@@ -122,6 +129,12 @@ public class MainActivity extends AppCompatActivity {
     void SendToRegister()
     {
         Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    void SendToReset()
+    {
+        Intent intent = new Intent(this, ResetPasswordActivity.class);
         startActivity(intent);
     }
 
