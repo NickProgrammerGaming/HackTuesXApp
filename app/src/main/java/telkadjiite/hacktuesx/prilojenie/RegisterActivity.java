@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
-    DatabaseReference database;
+    DatabaseReference database = FirebaseDatabase.getInstance("https://hacktuesxprilojenie-10166-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
     EditText firstNameInput;
     EditText lastNameInput;
     EditText emailInput;
@@ -52,8 +52,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         mAuth = FirebaseAuth.getInstance();
-        database = FirebaseDatabase.getInstance().getReference();
-
         firstNameInput = findViewById(R.id.firstNameInput);
         lastNameInput = findViewById(R.id.lastNameInput);
         emailInput = findViewById(R.id.emailInputRegister);
@@ -116,6 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
            public void onComplete(@NonNull Task<AuthResult> task) {
                if (task.isSuccessful()) {
                    mUser = mAuth.getCurrentUser();
+
                    mUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                        @Override
                        public void onComplete(@NonNull Task<Void> task) {
@@ -129,9 +128,8 @@ public class RegisterActivity extends AppCompatActivity {
                            }
                        }
                    });
-
                    User newUser = new User(fName, lName);
-                   database.child("users").child(mUser.getUid()).setValue(newUser);
+                   AddUserToDB(mUser, newUser);
                    SendToLogin();
 
                }else {
@@ -146,6 +144,14 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    void AddUserToDB(FirebaseUser currentFbUser, User user)
+    {
+        database.child("users").child(currentFbUser.getUid()).child("firstName").setValue(user.firstName);
+        database.child("users").child(currentFbUser.getUid()).child("lastName").setValue(user.lastName);
+        database.child("users").child(currentFbUser.getUid()).child("description").setValue(user.description);
+        database.child("users").child(currentFbUser.getUid()).child("hobbies").setValue(user.hobbies);
+        database.child("users").child(currentFbUser.getUid()).child("joinedEvents").setValue(user.joinedEvents);
+    }
     void SendToLogin()
     {
         Intent intent = new Intent(this, MainActivity.class);
