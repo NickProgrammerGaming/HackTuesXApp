@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/menuProfile">
+
+    <fragment
+        android:id="@+id/menuProfile"
+        android:name="telkadjiite.hacktuesx.prilojenie.TestFragment"
+        android:label="Wallpapers"
+        tools:layout="@layout/fragment_test" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/menuMyEvents"-->
+<!--        android:name="telkadjiite.hacktuesx.prilojenie."-->
+<!--        android:label="MyEvents"-->
+<!--        tools:layout="@layout/" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/menuEvents"-->
+<!--        android:name="telkadjiite.hacktuesx.prilojenie."-->
+<!--        android:label="Events"-->
+<!--        tools:layout="@layout/" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/menuCreateEvents"-->
+<!--        android:name="telkadjiite.hacktuesx.prilojenie."-->
+<!--        android:label="CreateEvents"-->
+<!--        tools:layout="@layout/" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/menuMaps"-->
+<!--        android:name="telkadjiite.hacktuesx.prilojenie."-->
+<!--        android:label="Map"-->
+<!--        tools:layout="@layout/" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/menuSettings"-->
+<!--        android:name="telkadjiite.hacktuesx.prilojenie."-->
+<!--        android:label="Settings"-->
+<!--        tools:layout="@layout/" />-->
+
+
+</navigation>
