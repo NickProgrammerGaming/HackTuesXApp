@@ -1,6 +1,7 @@
 package telkadjiite.hacktuesx.prilojenie;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     TextView registerText;
     TextView registerTextButton;
     Button loginButton;
+   SharedPreferences sp;
+    boolean loggedIn = false;
 
     String emailValidationPattern = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
 
@@ -54,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
        registerText = findViewById(R.id.registerText);
        registerTextButton = findViewById(R.id.registerTextButton);
        loginButton = findViewById(R.id.loginButton);
+       sp = getSharedPreferences("LoginState", MODE_PRIVATE);
+
+       loggedIn = sp.getBoolean("LoggedIn", false);
+
+       if(loggedIn)
+       {
+           sendToNextActivity();
+       }
 
        registerTextButton.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -105,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
                     else
                     {
                         Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_SHORT).show();
+                        SharedPreferences.Editor editor = sp.edit();
+                        loggedIn = true;
+                        editor.putBoolean("LoggedIn", loggedIn);
+                        editor.commit();
                         sendToNextActivity();
                     }
 
