@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
        if(loggedIn)
        {
+           mAuth.signInWithEmailAndPassword(sp.getString("Email", null), sp.getString("Password", null));
            sendToNextActivity();
        }
 
@@ -119,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sp.edit();
                         loggedIn = true;
                         editor.putBoolean("LoggedIn", loggedIn);
+                        editor.putString("Email", email);
+                        editor.putString("Password", password);
                         editor.commit();
                         sendToNextActivity();
                     }

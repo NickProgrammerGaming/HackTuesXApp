@@ -91,9 +91,9 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        if(password.isEmpty())
+        if(password.isEmpty() || password.length() < 6)
         {
-            passwordInput.setError("Enter a password");
+            passwordInput.setError("Enter a password that is at least 6 characters");
             return;
         }
 
