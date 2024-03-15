@@ -6,9 +6,6 @@
     tools:context=".Settings"
     android:background="@drawable/background">
 
-
-    <!-- TODO: Update blank fragment layout -->
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +13,8 @@
         android:text="Settings"
         android:layout_gravity="center_horizontal"
         android:textSize="30dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
@@ -24,6 +22,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="600dp"
         android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
         android:text="Sign Out" />
 
 </FrameLayout>
