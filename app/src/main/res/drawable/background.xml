@@ -5,7 +5,7 @@
             <gradient
                 android:startColor="#A04BD5"
                 android:endColor="#5BA4DD"
-                android:angle="50" />
+                android:angle="90" />
         </shape>
     </item>
 </selector>

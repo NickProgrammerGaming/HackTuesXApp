@@ -132,14 +132,15 @@ public class CreateEvents extends Fragment {
     User searchForUserDatabase(String uid)
     {
         Log.println(Log.INFO, "Uid of current user", uid);
-        final User[] user = new User[1];
+
 
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String firstName = snapshot.child("users").child(uid).child("firstName").getValue(String.class);
                 String lastName = snapshot.child("users").child(uid).child("lastName").getValue(String.class);
-                user[0] = new User(firstName, lastName);
+                User newUser = new User(firstName, lastName);
+
             }
 
             @Override
@@ -153,7 +154,7 @@ public class CreateEvents extends Fragment {
         locationInput.setText("");
         neededPeopleInput.setText("");
 
-        return  user[0];
+        return new User("", "", "", new ArrayList<>(), new ArrayList<>());
     }
 
     /*

@@ -17,8 +17,8 @@ public class User {
     {
         firstName = _firstName;
         lastName = _lastName;
-        description = null;
-        hobbies = null;
+        description = "";
+        hobbies = new ArrayList<Hobbies>();
     }
     public User(String _firstName, String _lastName, String _description, ArrayList<Hobbies> _hobbies,  ArrayList<Event> _joinedEvents)
     {

@@ -49,12 +49,14 @@ public class Profile extends Fragment
 
     View rootView;
 
+    User user = null;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_profile, container, false);
-
+        mAuth = FirebaseAuth.getInstance();
         firstNameText = rootView.findViewById(R.id.first_name);
         lastNameText = rootView.findViewById(R.id.last_name);
         descriptionProfile = rootView.findViewById(R.id.profile_description);
@@ -63,40 +65,27 @@ public class Profile extends Fragment
         saveChangesButton = rootView.findViewById(R.id.saveChangesButton);
 
         mUser = mAuth.getCurrentUser();
-        User user = searchForUserDatabase(mUser.getUid());
-
-        firstNameText.setText("First Name: " + user.firstName);
-        lastNameText.setText("Last Name: " + user.lastName);
-        descriptionProfile.setText(user.description);
-
-        loadHobbies(user.hobbies);
-
+        searchForUserDatabase(mUser.getUid());
         ArrayList<String> hobbiesArray = new ArrayList<String>();
-        for(Hobbies h : Hobbies.values())
-        {
+        for (Hobbies h : Hobbies.values()) {
             hobbiesArray.add(h.name());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(rootView.getContext(), android.R.layout.simple_spinner_item, hobbiesArray);
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(rootView.getContext(), android.R.layout.simple_spinner_item, hobbiesArray);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         hobbiesAddSpinner.setAdapter(adapter);
 
-        hobbiesAddSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        if (user != null && user.hobbies != null) {
+            setHobbiesSpinner();
+        }
+
+        saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(!user.hobbies.contains(Hobbies.valueOf(hobbiesArray.get(i))))
-                {
-                    user.hobbies.add(Hobbies.valueOf(hobbiesArray.get(i)));
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
+            public void onClick(View view) {
+                SaveChanges(user);
+                user.description = descriptionProfile.getText().toString();
             }
         });
-
          /*
         TODO:
         Get reference to realtime database and authorization database
@@ -112,10 +101,32 @@ public class Profile extends Fragment
 
     }
 
-    User searchForUserDatabase(String uid)
-    {
+    void setHobbiesSpinner() {
+        ArrayList<String> hobbiesArray = new ArrayList<String>();
+        for (Hobbies h : Hobbies.values()) {
+            hobbiesArray.add(h.name());
+        }
+        hobbiesAddSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(user.hobbies != null && !user.hobbies.contains(Hobbies.valueOf(hobbiesArray.get(i))))
+                {
+                    Hobbies hobbies = Hobbies.valueOf(hobbiesArray.get(i));
+                    user.hobbies.add(hobbies);
+                    addHobby(hobbies);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    void searchForUserDatabase(String uid) {
         Log.println(Log.INFO, "Uid of current user", uid);
-        final User[] user = new User[1];
 
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -125,26 +136,39 @@ public class Profile extends Fragment
                 String firstName = snapshot.child("users").child(uid).child("firstName").getValue(String.class);
                 String lastName = snapshot.child("users").child(uid).child("lastName").getValue(String.class);
                 String description = snapshot.child("users").child(uid).child("description").getValue(String.class);
-                for(DataSnapshot postSnapshot : snapshot.getChildren())
-                {
-                    Hobbies h = postSnapshot.getValue(Hobbies.class);
-                    hobbies.add(h);
+                if (snapshot.child("users").child(uid).child("hobbies").getValue(Hobbies.class) != null) {
+                    for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+//                    Hobbies h = postSnapshot.getValue(Hobbies.class);
+                        String hobbyName = postSnapshot.getValue(String.class);
+                        Hobbies hobby = Hobbies.valueOf(hobbyName);
+                        hobbies.add(hobby);
+                    }
                 }
-                for(DataSnapshot postSnapshot : snapshot.getChildren())
-                {
-                    Event e = postSnapshot.getValue(Event.class);
-                    joinedEvents.add(e);
+
+                if (snapshot.child("users").child(uid).child("events").getValue(Hobbies.class) != null) {
+                    for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                        Event e = postSnapshot.getValue(Event.class);
+                        joinedEvents.add(e);
+                    }
                 }
-                user[0] = new User(firstName, lastName, description, hobbies, joinedEvents);
+
+                // Initialize UI components after data retrieval
+                user = new User(firstName, lastName, description, hobbies, joinedEvents);
+                firstNameText.setText(user.firstName);
+                lastNameText.setText(user.lastName);
+                descriptionProfile.setText(user.description);
+                setHobbiesSpinner();
+                loadHobbies(user.hobbies);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // Handle error
             }
         });
 
-        return  user[0];
+        // Return a dummy user, since the actual user data is retrieved asynchronously
+//        return new User("", "", "", new ArrayList<>(), new ArrayList<>());
     }
 
     void loadHobbies(ArrayList<Hobbies> _hobbies)
@@ -155,6 +179,12 @@ public class Profile extends Fragment
             hobbyText.setText(h.name());
             hobbiesLayout.addView(hobbyText);
         }
+    }
+
+    void addHobby(Hobbies h) {
+        TextView hobbyText = new TextView(hobbiesLayout.getContext());
+        hobbyText.setText(h.name());
+        hobbiesLayout.addView(hobbyText);
     }
 
 
