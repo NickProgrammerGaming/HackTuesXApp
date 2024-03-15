@@ -6,11 +6,57 @@
     tools:context=".Profile"
     android:background="@drawable/background">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="100dp"
-        android:text="profile" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Name:"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="60dp"
+        android:id="@+id/first_name"/>
+
+    <TextView
+        android:id="@+id/last_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="230dp"
+        android:text="Last Name:" />
+
+    <EditText
+        android:id="@+id/profile_description"
+        android:layout_width="354dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="270dp"
+        android:hint="Description"
+        android:inputType="textPassword"
+        android:layout_marginLeft="-6dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/hobbies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="350dp"
+        android:text="Hobbies:" />
+
+    <Spinner
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="340dp"
+        android:id="@+id/spinner_prof_hobb"/>
 
 </FrameLayout>
