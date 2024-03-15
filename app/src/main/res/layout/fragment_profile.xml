@@ -44,7 +44,6 @@
         android:layout_height="60dp"
         android:layout_marginTop="280dp"
         android:hint="Description"
-        android:inputType="textPassword"
         android:layout_marginLeft="-6dp"
         android:layout_gravity="center_horizontal"
         android:textColorHint="@color/white"
@@ -66,7 +65,8 @@
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="350dp"
-        android:id="@+id/spinner_prof_hobby"/>
+        android:id="@+id/spinner_prof_hobby"
+        android:background="@color/white"/>
 
     <TextView
         android:id="@+id/hobbies"

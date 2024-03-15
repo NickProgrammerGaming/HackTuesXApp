@@ -154,8 +154,8 @@ public class Profile extends Fragment
 
                 // Initialize UI components after data retrieval
                 user = new User(firstName, lastName, description, hobbies, joinedEvents);
-                firstNameText.setText(user.firstName);
-                lastNameText.setText(user.lastName);
+                firstNameText.setText("First Name: " + user.firstName);
+                lastNameText.setText("Last Name: " + user.lastName);
                 descriptionProfile.setText(user.description);
                 setHobbiesSpinner();
                 loadHobbies(user.hobbies);
@@ -191,6 +191,7 @@ public class Profile extends Fragment
         database.child("users").child(mUser.getUid()).child("description").setValue(descriptionProfile.getText().toString());
         database.child("users").child(mUser.getUid()).child("hobbies").setValue(u.hobbies);
         database.child("users").child(mUser.getUid()).child("joinedEvents").setValue(u.joinedEvents);
+        Toast.makeText(rootView.getContext(), "Changes Saved", Toast.LENGTH_SHORT).show();
     }
 
 

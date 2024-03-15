@@ -1,9 +1,11 @@
 package telkadjiite.hacktuesx.prilojenie;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,7 +39,7 @@ public class CreateEvents extends Fragment {
 
     EditText titleInput;
     EditText descriptionInput;
-    EditText locationInput;
+    Button locationButton;
     EditText neededPeopleInput;
     Spinner hobbiesSpinner;
 
@@ -55,7 +57,7 @@ public class CreateEvents extends Fragment {
         mUser = mAuth.getCurrentUser();
         titleInput = rootView.findViewById(R.id.titleCreateInput);
         descriptionInput = rootView.findViewById(R.id.descriptionInput);
-        locationInput = rootView.findViewById(R.id.locationInput);
+        locationButton = rootView.findViewById(R.id.locationButton);
         neededPeopleInput = rootView.findViewById(R.id.neededPeopleInput);
         hobbiesSpinner = rootView.findViewById(R.id.spinnerHobbies);
         createEventButton = rootView.findViewById(R.id.createEventButton);
@@ -70,7 +72,12 @@ public class CreateEvents extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         hobbiesSpinner.setAdapter(adapter);
 
-
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToLocationSelect();
+            }
+        });
 
 
         createEventButton.setOnClickListener(new View.OnClickListener() {
@@ -88,11 +95,6 @@ public class CreateEvents extends Fragment {
                     descriptionInput.setError("Enter a description");
 
                 }
-                else if(locationInput.getText().toString().isEmpty())
-                {
-                    locationInput.setError("Enter a location");
-
-                }
                 else if(Integer.parseInt(neededPeopleInput.getText().toString()) < 1)
                 {
                     neededPeopleInput.setError("Enter a valid number");
@@ -100,9 +102,11 @@ public class CreateEvents extends Fragment {
                 }
                 else
                 {
-                    CreateEvent(titleInput.getText().toString(), descriptionInput.getText().toString(),
-                            locationInput.getText().toString(), Integer.parseInt(neededPeopleInput.getText().toString()),
-                            Hobbies.valueOf(hobbiesSpinner.getSelectedItem().toString()));
+                    //TODO: Create event with proper location
+
+//                    CreateEvent(titleInput.getText().toString(), descriptionInput.getText().toString(),
+//                            locationInput.getText().toString(), Integer.parseInt(neededPeopleInput.getText().toString()),
+//                            Hobbies.valueOf(hobbiesSpinner.getSelectedItem().toString()));
                 }
 
 
@@ -152,10 +156,16 @@ public class CreateEvents extends Fragment {
 
         titleInput.setText("");
         descriptionInput.setText("");
-        locationInput.setText("");
         neededPeopleInput.setText("");
 
         return user;
+    }
+
+    void navigateToLocationSelect()
+    {
+        // Navigate
+        Intent i = new Intent(getActivity(), LocationSelect.class);
+        startActivity(i);
     }
 
 
