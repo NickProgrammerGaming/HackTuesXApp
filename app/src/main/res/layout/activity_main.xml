@@ -12,12 +12,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome back!"
+        android:text="Welcome!"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:textSize="30dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         />
 
     <EditText
@@ -27,8 +27,10 @@
         android:layout_marginTop="160dp"
         android:inputType="textEmailAddress"
         android:hint="Email"
-        android:textColor="@color/black"
         android:id="@+id/emailInput"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
         />
 
     <EditText
@@ -39,18 +41,20 @@
         android:layout_marginTop="40dp"
         android:inputType="textPassword"
         android:hint="Password"
-        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:id="@+id/passwordInput"
+        android:backgroundTint="@color/white"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Paswword?"
+        android:text="Forgot Password?"
         android:layout_below="@id/passwordInput"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="250dp"
         android:id="@+id/forgotPassword"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="300dp"
@@ -60,7 +64,8 @@
         android:id="@+id/loginButton"
         android:text="Log In"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"/>
+        android:background="@color/blue"
+        android:textColor="@color/white" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,7 +75,7 @@
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/registerText"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -82,7 +87,7 @@
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:id="@+id/registerTextButton"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
 
 

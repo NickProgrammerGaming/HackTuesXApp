@@ -11,12 +11,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Profile"
+        android:text="Create a Profile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:textSize="30dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         />
 
     <EditText
@@ -25,7 +25,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="160dp"
         android:hint="First Name"
-        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
         android:id="@+id/firstNameInput"
         />
 
@@ -35,7 +37,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:hint="Last Name"
-        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
         android:id="@+id/lastNameInput"
         android:layout_below="@id/firstNameInput"
         />
@@ -48,7 +52,9 @@
         android:layout_marginTop="20dp"
         android:inputType="textEmailAddress"
         android:hint="Email"
-        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
         android:id="@+id/emailInputRegister"
         />
 
@@ -60,7 +66,9 @@
         android:layout_marginTop="20dp"
         android:inputType="textPassword"
         android:hint="Password"
-        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
         android:id="@+id/passwordInputRegister"/>
 
     <EditText
@@ -71,7 +79,9 @@
         android:layout_marginTop="20dp"
         android:inputType="textPassword"
         android:hint="Confirm Password"
-        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
         android:id="@+id/passwordConfirmInput"
         />
 
@@ -83,9 +93,7 @@
         android:id="@+id/registerButton"
         android:text="Register"
         android:layout_centerHorizontal="true"
-        />
-
-
-
+        android:background="@color/blue"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

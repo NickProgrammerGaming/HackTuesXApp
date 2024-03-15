@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Profile"
+        android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
@@ -18,14 +19,14 @@
 
 
     <TextView
+        android:id="@+id/first_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Name:"
-        android:layout_marginTop="190dp"
         android:layout_marginLeft="60dp"
-        android:id="@+id/first_name"
-        android:textSize="15dp"
-        />
+        android:textColor="@color/white"
+        android:layout_marginTop="190dp"
+        android:text="First Name:"
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/last_name"
@@ -33,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="240dp"
+        android:textColor="@color/white"
         android:text="Last Name:"
         android:textSize="15dp"/>
 
@@ -45,12 +47,15 @@
         android:inputType="textPassword"
         android:layout_marginLeft="-6dp"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/black" />
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/addHobby"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="360dp"
         android:text="Add hobby:"
@@ -68,6 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
+        android:textColor="@color/white"
         android:layout_marginTop="420dp"
         android:text="Hobbies: "
         android:textSize="15dp"/>
@@ -89,7 +95,9 @@
         android:layout_marginTop="700dp"
         android:id="@+id/saveChangesButton"
         android:text="Save Changes"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@color/blue"
+        android:textColor="@color/white" />
 
 
 </FrameLayout>
