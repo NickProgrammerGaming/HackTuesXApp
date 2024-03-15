@@ -22,7 +22,7 @@
         android:layout_marginTop="160dp"
         android:hint="Title"
         android:textColor="@color/black"
-        android:id="@+id/titleInput"/>
+        android:id="@+id/titleCreateInput"/>
 
     <EditText
         android:layout_width="310dp"
