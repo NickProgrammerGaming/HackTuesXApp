@@ -3,26 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings">
+    tools:context=".Settings"
+    android:background="@drawable/background">
 
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:layout_width="166dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="20dp"
         android:text="Settings"
-        android:textAlignment="textEnd"
+        android:layout_gravity="center_horizontal"
         android:textSize="30dp"
         android:textStyle="bold" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="900dp"
-        android:backgroundTint="#5A5A5A"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="600dp"
+        android:layout_gravity="center_horizontal"
         android:text="Sign Out" />
 
 </FrameLayout>
