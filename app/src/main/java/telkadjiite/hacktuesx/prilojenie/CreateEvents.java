@@ -71,6 +71,7 @@ public class CreateEvents extends Fragment {
 
 
 
+
         createEventButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

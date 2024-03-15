@@ -57,7 +57,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="90dp"
         android:layout_marginTop="490dp"
         android:text="Hobby Type:"
         android:textStyle="bold"/>
@@ -67,6 +67,7 @@
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="480dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/spinnerHobbies"
         />
 
