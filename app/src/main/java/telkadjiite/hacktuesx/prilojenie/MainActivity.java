@@ -60,12 +60,12 @@ public class MainActivity extends AppCompatActivity {
        sp = getSharedPreferences("LoginState", MODE_PRIVATE);
 
        loggedIn = sp.getBoolean("LoggedIn", false);
-//
-//       if(loggedIn)
-//       {
-//           mAuth.signInWithEmailAndPassword(sp.getString("Email", null), sp.getString("Password", null));
-//           sendToNextActivity();
-//       }
+
+       if(loggedIn)
+       {
+           mAuth.signInWithEmailAndPassword(sp.getString("Email", null), sp.getString("Password", null));
+           sendToNextActivity();
+       }
 
        registerTextButton.setOnClickListener(new View.OnClickListener() {
            @Override

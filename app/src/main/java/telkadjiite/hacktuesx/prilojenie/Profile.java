@@ -98,7 +98,6 @@ public class Profile extends Fragment
         // Inflate the layout for this fragment
         return rootView;
 
-
     }
 
     void setHobbiesSpinner() {
@@ -136,21 +135,22 @@ public class Profile extends Fragment
                 String firstName = snapshot.child("users").child(uid).child("firstName").getValue(String.class);
                 String lastName = snapshot.child("users").child(uid).child("lastName").getValue(String.class);
                 String description = snapshot.child("users").child(uid).child("description").getValue(String.class);
-                if (snapshot.child("users").child(uid).child("hobbies").getValue(Hobbies.class) != null) {
-                    for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-//                    Hobbies h = postSnapshot.getValue(Hobbies.class);
-                        String hobbyName = postSnapshot.getValue(String.class);
-                        Hobbies hobby = Hobbies.valueOf(hobbyName);
+                ArrayList<String> hb = (ArrayList<String>) snapshot.child("users").child(uid).child("hobbies").getValue();
+
+                if (hb != null) {
+                    for (String h: hb) {
+                        Hobbies hobby = Hobbies.valueOf(h);
                         hobbies.add(hobby);
                     }
                 }
 
-                if (snapshot.child("users").child(uid).child("events").getValue(Hobbies.class) != null) {
-                    for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                        Event e = postSnapshot.getValue(Event.class);
-                        joinedEvents.add(e);
-                    }
-                }
+
+//                if (snapshot.child("users").child(uid).child("events").getValue(Hobbies.class) != null) {
+//                    for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+//                        Event e = postSnapshot.getValue(Event.class);
+//                        joinedEvents.add(e);
+//                    }
+//                }
 
                 // Initialize UI components after data retrieval
                 user = new User(firstName, lastName, description, hobbies, joinedEvents);
@@ -167,8 +167,6 @@ public class Profile extends Fragment
             }
         });
 
-        // Return a dummy user, since the actual user data is retrieved asynchronously
-//        return new User("", "", "", new ArrayList<>(), new ArrayList<>());
     }
 
     void loadHobbies(ArrayList<Hobbies> _hobbies)

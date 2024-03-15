@@ -45,6 +45,7 @@ public class CreateEvents extends Fragment {
 
     View rootView;
 
+    User user = null;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -139,7 +140,7 @@ public class CreateEvents extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String firstName = snapshot.child("users").child(uid).child("firstName").getValue(String.class);
                 String lastName = snapshot.child("users").child(uid).child("lastName").getValue(String.class);
-                User newUser = new User(firstName, lastName);
+                user = new User(firstName, lastName);
 
             }
 
@@ -154,8 +155,9 @@ public class CreateEvents extends Fragment {
         locationInput.setText("");
         neededPeopleInput.setText("");
 
-        return new User("", "", "", new ArrayList<>(), new ArrayList<>());
+        return user;
     }
+
 
     /*
     TODO:
