@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
        if(loggedIn)
        {
-           //mAuth.signInWithEmailAndPassword(sp.getString("Email", null), sp.getString("Password", null));
+           mAuth.signInWithEmailAndPassword(sp.getString("Email", null), sp.getString("Password", null));
            sendToNextActivity();
        }
 

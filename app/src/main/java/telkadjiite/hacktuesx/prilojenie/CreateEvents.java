@@ -33,7 +33,7 @@ public class CreateEvents extends Fragment {
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
-    DatabaseReference database = FirebaseDatabase.getInstance("https://hacktuesxprilojenie-10166-default-rtdb.europe-west1.firebasedatabase.app/").getReference();;
+    DatabaseReference database = FirebaseDatabase.getInstance("https://hacktuesxprilojenie-10166-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
 
     EditText titleInput;
     EditText descriptionInput;
@@ -69,12 +69,41 @@ public class CreateEvents extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         hobbiesSpinner.setAdapter(adapter);
 
+
+
         createEventButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                CreateEvent(titleInput.getText().toString(), descriptionInput.getText().toString(),
-                        locationInput.getText().toString(), Integer.parseInt(neededPeopleInput.getText().toString()),
-                                Hobbies.valueOf(hobbiesSpinner.getSelectedItem().toString()));
+
+                if(titleInput.getText().toString().isEmpty())
+                {
+                    titleInput.setError("Enter a title");
+
+                }
+                else if(descriptionInput.getText().toString().isEmpty())
+                {
+                    descriptionInput.setError("Enter a description");
+
+                }
+                else if(locationInput.getText().toString().isEmpty())
+                {
+                    locationInput.setError("Enter a location");
+
+                }
+                else if(Integer.parseInt(neededPeopleInput.getText().toString()) < 1)
+                {
+                    neededPeopleInput.setError("Enter a valid number");
+
+                }
+                else
+                {
+                    CreateEvent(titleInput.getText().toString(), descriptionInput.getText().toString(),
+                            locationInput.getText().toString(), Integer.parseInt(neededPeopleInput.getText().toString()),
+                            Hobbies.valueOf(hobbiesSpinner.getSelectedItem().toString()));
+                }
+
+
             }
         });
 
@@ -84,6 +113,8 @@ public class CreateEvents extends Fragment {
 
     void CreateEvent(String title, String description, String location, int neededPeople, Hobbies hobby)
     {
+
+
         Event newEvent = new Event(title, description, location, neededPeople, hobby, searchForUserDatabase(mUser.getUid()));
         database.child("events").child(newEvent.id).child("title").setValue(title);
         database.child("events").child(newEvent.id).child("description").setValue(description);
@@ -94,6 +125,7 @@ public class CreateEvents extends Fragment {
         database.child("events").child(newEvent.id).child("owner").setValue(newEvent.owner);
         database.child("events").child(newEvent.id).child("participants").setValue(newEvent.participants);
         Toast.makeText(rootView.getContext(), "Successfully created an event", Toast.LENGTH_SHORT).show();
+
     }
 
     User searchForUserDatabase(String uid)
@@ -114,6 +146,11 @@ public class CreateEvents extends Fragment {
 
             }
         });
+
+        titleInput.setText("");
+        descriptionInput.setText("");
+        locationInput.setText("");
+        neededPeopleInput.setText("");
 
         return  user[0];
     }
