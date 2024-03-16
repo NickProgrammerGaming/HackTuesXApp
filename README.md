@@ -24,7 +24,7 @@ HobbyHook е приложение за откриване на хора с по�
 
 Блокова схема на приложението(brain storm-нато веднага след пускането на темата):
 
-[проект](https://github.com/NickProgrammerGaming/HackTuesXApp/assets/78904095/10bd4d8d-1544-442a-8c5c-a7a56cebe763)
+https://github.com/NickProgrammerGaming/HackTuesXApp/assets/78904095/10bd4d8d-1544-442a-8c5c-a7a56cebe763
 
 
 ## Снимки от приложението
