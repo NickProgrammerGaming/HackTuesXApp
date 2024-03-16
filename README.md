@@ -31,3 +31,12 @@ HobbyHook е приложение за откриване на хора с по�
 ![load screen](https://github.com/NickProgrammerGaming/HackTuesXApp/assets/78904095/d423c6f7-de0b-4b7f-bc59-5c5b4e6c2ebb)
 
 ![profile](https://github.com/NickProgrammerGaming/HackTuesXApp/assets/78904095/a5666cde-bdca-4f72-8122-edfb5702c061)
+
+## Автори
+- Павел Симеонов
+- Никола Кръстанов
+- Георги Стоянов
+- Станислав Иванов
+
+## Ментор
+- Русана Монева - StamSoft
