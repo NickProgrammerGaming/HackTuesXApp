@@ -16,22 +16,19 @@ HobbyHook е приложение за откриване на хора с по�
 
 ## Архитектура на проекта и 
 
-**/app/**
+**/HobbyHook/**
 
--   Изградено чрез
+-   Изградено чрез Java, ползвайки  Android Studio
 
--   Базирано на [Sekrit.tech](https://www.youtube.com/watch?v=dQw4w9WgXcQ). 
+-   Код за мобилни андроид телефони.
 
--   Код за
+Блокова схема на приложението(brain storm-нато веднага след пускането на темата):
 
-Блокова схема на приложението:
-
-![alt text](figures/phone.png)
+![проект](https://github.com/NickProgrammerGaming/HackTuesXApp/assets/78904095/10bd4d8d-1544-442a-8c5c-a7a56cebe763)
 
 
 ## Снимки от приложението
 
-![alt text](figures/woman.png)
+![load screen](https://github.com/NickProgrammerGaming/HackTuesXApp/assets/78904095/d423c6f7-de0b-4b7f-bc59-5c5b4e6c2ebb)
 
-
-![alt text](figures/phone.png)
+![profile](https://github.com/NickProgrammerGaming/HackTuesXApp/assets/78904095/a5666cde-bdca-4f72-8122-edfb5702c061)
