@@ -6,7 +6,7 @@
     tools:context=".Events"
     android:background="@drawable/background">
 
-    <!-- TODO: Update blank fragment layout -->
+    
     <TextView
         android:text="Events"
         android:layout_width="wrap_content"
@@ -16,5 +16,13 @@
         android:textSize="30dp"
         android:textStyle="bold"
         android:textColor="@color/white"/>
+    
+    <ListView
+        android:layout_width="400dp"
+        android:layout_height="600dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:id="@+id/eventsView"
+        />
 
 </FrameLayout>

@@ -17,6 +17,7 @@ public class Event {
     public String id;
 
 
+
     public Event(String _title, String _description, String _location, int _neededPeople, Hobbies _hobby, User _owner)
     {
         id = UUID.randomUUID().toString();

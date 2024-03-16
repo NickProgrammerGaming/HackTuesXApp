@@ -104,9 +104,9 @@ public class CreateEvents extends Fragment {
                 {
                     //TODO: Create event with proper location
 
-//                    CreateEvent(titleInput.getText().toString(), descriptionInput.getText().toString(),
-//                            locationInput.getText().toString(), Integer.parseInt(neededPeopleInput.getText().toString()),
-//                            Hobbies.valueOf(hobbiesSpinner.getSelectedItem().toString()));
+                    CreateEvent(titleInput.getText().toString(), descriptionInput.getText().toString(),
+                            "Example Location", Integer.parseInt(neededPeopleInput.getText().toString()),
+                            Hobbies.valueOf(hobbiesSpinner.getSelectedItem().toString()));
                 }
 
 
